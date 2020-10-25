@@ -1,7 +1,6 @@
 <template>
   <div id="app">
-    <img width="25%" src="./assets/logo.png">
-    <h1>Child Component validation with Vuelidate</h1>
+    <h1>Форма создания Клиента</h1>
     <form-component />
   </div>
 </template>
@@ -51,10 +50,6 @@ export default {
   border-radius: 2px;
   border-bottom: 2px solid #2e9106;
   transition: 0.3s;
-  &:hover {
-    background: #2e9107;
-    border-bottom: 2px solid #226906;
-  }
 }
 
 </style>

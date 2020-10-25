@@ -1,8 +1,12 @@
 <template>
   <div class="form-group" :class="{ 'hasError': v.$error }">
-    <label class="mr-2 font-bold text-grey">Name</label>
-    <input type="text" class="input" v-model="name" placeholder="Joe" @input="v.$touch()">
-    <div class="text-sm mt-2 text-grey-darker">Name is required and must be Joe</div>
+    <label class="mr-2 font-bold text-grey">Номер телефона*: </label>
+    <input
+      type="text"
+      class="input"
+      v-model="telephone"
+      placeholder="7 ххх ххх хх хх"
+      @input="v.$touch()">
   </div>
 </template>
 
@@ -19,7 +23,7 @@ export default {
     }
   },
   computed: {
-    name: {
+    telephone: {
       get() {
         return this.value;
       },

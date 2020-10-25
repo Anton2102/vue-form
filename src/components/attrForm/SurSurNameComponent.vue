@@ -1,16 +1,11 @@
 <template>
   <div class="form-group" :class="{ hasError: v.$error }">
-    <label class="mr-2 font-bold text-grey">Email</label>
+    <label class="mr-2 font-bold text-grey">Отчество: </label>
     <input
-      type="email"
+      type="text"
       class="input"
-      v-model="email"
-      placeholder="user@yahoo.com"
+      v-model="sursurname"
     />
-    <div class="text-sm mt-2 text-grey-darker">
-      Email is required and must NOT be gmail<br />
-      Async check if email is less than 10 chars
-    </div>
   </div>
 </template>
 
@@ -27,7 +22,7 @@ export default {
     }
   },
   computed: {
-    email: {
+    sursurname: {
       get() {
         return this.value;
       },
