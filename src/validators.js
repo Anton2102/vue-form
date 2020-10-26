@@ -7,12 +7,10 @@ export function checkTelephone(value) {
   return /7 [0-9]{3} [0-9]{3} [0-9]{2} [0-9]{2}/i.test(value);
 }
 
-
-
-export function notGmail(value = "") {
-  return !value.includes("gmail");
+export function checkDateIssued(value) {
+  return /([0-1]\d|2[0-3])(.[0-5]\d){2}/.test(value);
 }
-//
+
 export function isEmailAvailable(value) {
   if (value === "") return true;
 

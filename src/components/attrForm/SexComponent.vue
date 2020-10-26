@@ -1,12 +1,9 @@
 <template>
   <div class="form-group" :class="{ 'hasError': v.$error }">
-    <label class="mr-2 font-bold text-grey">Город*:</label>
-    <input
-      type="text"
-      class="input"
-      v-model="city"
-      placeholder="Москва"
-      @input="v.$touch()">
+    <input type="radio" name="sex" id="one" value="Один">
+    <label for="one">муж</label>
+    <input type="radio" name="sex" id="two" value="Два">
+    <label for="two">жен</label>
   </div>
 </template>
 
@@ -23,7 +20,7 @@ export default {
     }
   },
   computed: {
-    city: {
+    sex: {
       get() {
         return this.value;
       },

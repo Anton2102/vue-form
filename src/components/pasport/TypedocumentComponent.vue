@@ -1,12 +1,11 @@
 <template>
   <div class="form-group" :class="{ 'hasError': v.$error }">
-    <label class="mr-2 font-bold text-grey">Город*:</label>
-    <input
-      type="text"
-      class="input"
-      v-model="city"
-      placeholder="Москва"
-      @input="v.$touch()">
+      <label>Тип документа*:</label>
+      <select class="input" v-model="typedocument" @input="v.$touch()">
+        <option>Паспорт</option>
+        <option>Свидетельство о рождении</option>
+        <option>Вод. удостоверение</option>
+      </select>
   </div>
 </template>
 
@@ -23,7 +22,7 @@ export default {
     }
   },
   computed: {
-    city: {
+    typedocument: {
       get() {
         return this.value;
       },

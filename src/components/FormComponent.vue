@@ -1,8 +1,5 @@
 <template>
   <div class="form pt-6">
-    <div class="summary text-red" v-if="$v.form.$error">
-      Ошибка в заполнении Атрибутов формы:
-    </div>
     <form @submit.prevent="submit" novalidate>
       <div class="flex justify-center my-6">
 
@@ -31,33 +28,19 @@
         </div>
 
         <div class="px-4">
-          <input type="radio" name="sex" id="one" value="Один">
-            <label for="one">муж</label>
-          <input type="radio" name="sex" id="two" value="Два">
-            <label for="two">жен</label>
+          <sex-component v-model="form.sex" :v="$v.form.sex" />
         </div>
 
         <div class="px-4">
-          <label for="one">Группа клиентов:* </label>
-          <br>
-          <select multiple>
-            <option>VIP</option>
-            <option>Проблемные</option>
-            <option>ОМС</option>
-          </select>
+          <groupclient-component v-model="form.groupclient" :v="$v.form.groupclient" />
         </div>
 
         <div class="px-4">
-          <label>Лечащий врач: </label>
-          <select>
-            <option>Иванов</option>
-            <option>Захаров</option>
-            <option>Чернышев</option>
-          </select>
+          <doctor-component v-model="form.doctor" :v="$v.form.doctor" />
         </div>
 
         <div class="px-4">
-          <label>Не отправлять смс</label>
+          <label>Не отправлять смс </label>
           <input type="checkbox">
         </div>
 
@@ -91,13 +74,39 @@
 
         </div>
 
+        <h2>Паспорт</h2>
 
+        <div class="pasport">
+
+          <div class="px-4">
+            <typedocument-component v-model="form.typedocument" :v="$v.form.typedocument" />
+          </div>
+
+          <div class="px-4">
+            <series-component v-model="form.series" :v="$v.form.series" />
+          </div>
+
+          <div class="px-4">
+            <numberseries-component v-model="form.numberseries" :v="$v.form.numberseries" />
+          </div>
+
+          <div class="px-4">
+            <issued-component v-model="form.issued" :v="$v.form.issued" />
+          </div>
+
+          <div class="px-4">
+            <dateissued-component v-model="form.dateissued" :v="$v.form.dateissued" />
+          </div>
+        </div>
 
       </div>
       <div class="text-center">
         <button type="submit" class="button">
           Создать
         </button>
+        <div class="summary text-red" v-if="$v.form.$error">
+          Необходимо корректно заполнить обязательные поля!
+        </div>
       </div>
     </form>
   </div>
@@ -105,12 +114,16 @@
 
 <script>
 import { required } from "vuelidate/lib/validators";
-import { checkBirthDate, checkTelephone } from "../validators";
+import { checkBirthDate, checkTelephone, checkDateIssued } from "../validators";
+
 import NameComponent from "./attrForm/NameComponent.vue";
 import SurnameComponent from "./attrForm/SurnameComponent.vue";
 import SursurnameComponent from "./attrForm/SurSurNameComponent.vue";
 import BirthdateComponent from "./attrForm/BirthDateComponent.vue";
 import TelephoneComponent from "./attrForm/TelephoneComponent.vue";
+import SexComponent from "./attrForm/SexComponent.vue";
+import GroupclientComponent from "./attrForm/GroupclientComponent.vue";
+import DoctorComponent from "./attrForm/DoctorComponent.vue";
 
 import IndexruComponent from "./adress/IndexruComponent.vue";
 import NationComponent from "./adress/NationComponent.vue";
@@ -118,6 +131,15 @@ import RegionComponent from "./adress/RegionComponent.vue";
 import CityComponent from "./adress/CityComponent.vue";
 import StreatComponent from "./adress/StreatComponent.vue";
 import HouseComponent from "./adress/HouseComponent.vue";
+
+import TypedocumentComponent from "./pasport/TypedocumentComponent.vue";
+import SeriesComponent from "./pasport/SeriesComponent.vue";
+import NumberseriesComponent from "./pasport/NumberseriesComponent.vue";
+import IssuedComponent from "./pasport/IssuedComponent.vue";
+import DateissuedComponent from "./pasport/DateissuedComponent.vue";
+
+
+
 
 export default {
   name: "FormComponent",
@@ -128,12 +150,22 @@ export default {
     SursurnameComponent,
     BirthdateComponent,
     TelephoneComponent,
+    SexComponent,
+    GroupclientComponent,
+    DoctorComponent,
+
     IndexruComponent,
     NationComponent,
     RegionComponent,
     CityComponent,
     StreatComponent,
-    HouseComponent
+    HouseComponent,
+
+    TypedocumentComponent,
+    SeriesComponent,
+    NumberseriesComponent,
+    IssuedComponent,
+    DateissuedComponent
    },
 
   data() {
@@ -144,12 +176,22 @@ export default {
         sursurname: "",
         birthdate: "",
         telephone: "",
+        sex: "",
+        groupclient: "",
+        doctor: "",
+
         indexru: "",
         nation: "",
         region: "",
         city: "",
         streat: "",
-        house: ""
+        house: "",
+
+        typedocument: "",
+        series: "",
+        numberseries: "",
+        issued: "",
+        dateissued: ""
       }
     };
   },
@@ -161,12 +203,22 @@ export default {
       sursurname: {},
       birthdate: { checkBirthDate },
       telephone: { checkTelephone },
+      sex: {},
+      groupclient: { required },
+      doctor: {},
+
       indexru: {},
       nation: {},
       region: {},
       city: { required },
       streat: {},
-      house: {}
+      house: {},
+
+      typedocument: { required },
+      series: {},
+      numberseries: {},
+      issued: {},
+      dateissued: { checkDateIssued }
     }
   },
 

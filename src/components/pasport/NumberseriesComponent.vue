@@ -1,11 +1,10 @@
 <template>
   <div class="form-group" :class="{ 'hasError': v.$error }">
-    <label class="mr-2 font-bold text-grey">Город*:</label>
+    <label class="mr-2 font-bold text-grey">Номер:</label>
     <input
       type="text"
       class="input"
-      v-model="city"
-      placeholder="Москва"
+      v-model="numberseries"
       @input="v.$touch()">
   </div>
 </template>
@@ -23,7 +22,7 @@ export default {
     }
   },
   computed: {
-    city: {
+    numberseries: {
       get() {
         return this.value;
       },

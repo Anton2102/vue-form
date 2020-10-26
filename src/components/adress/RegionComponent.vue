@@ -1,11 +1,10 @@
 <template>
   <div class="form-group" :class="{ 'hasError': v.$error }">
-    <label class="mr-2 font-bold text-grey">Область: </label>
+    <label class="mr-2 font-bold text-grey">Область:</label>
     <input
       type="text"
       class="input"
       v-model="region"
-      placeholder="Московская область"
       @input="v.$touch()">
   </div>
 </template>

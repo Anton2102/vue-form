@@ -1,6 +1,6 @@
 <template>
   <div class="form-group" :class="{ 'hasError': v.$error }">
-    <label class="mr-2 font-bold text-grey">Дом: </label>
+    <label class="mr-2 font-bold text-grey">Дом:</label>
     <input
       type="text"
       class="input"

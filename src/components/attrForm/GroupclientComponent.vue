@@ -1,12 +1,12 @@
 <template>
   <div class="form-group" :class="{ 'hasError': v.$error }">
-    <label class="mr-2 font-bold text-grey">Город*:</label>
-    <input
-      type="text"
-      class="input"
-      v-model="city"
-      placeholder="Москва"
-      @input="v.$touch()">
+    <label for="one">Группа клиентов:*</label>
+      <br>
+      <select v-model="groupclient" class="input" @input="v.$touch()">
+        <option>VIP</option>
+        <option>Проблемные</option>
+        <option>ОМС</option>
+      </select>
   </div>
 </template>
 
@@ -23,7 +23,7 @@ export default {
     }
   },
   computed: {
-    city: {
+    groupclient: {
       get() {
         return this.value;
       },
