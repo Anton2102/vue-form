@@ -48,7 +48,7 @@ export default {
 .button {
   background: #3ab409;
   padding: 0.5rem 1rem;
-  color: white;
+  color: black;
   text-transform: uppercase;
   font-weight: bold;
   letter-spacing: 3px;

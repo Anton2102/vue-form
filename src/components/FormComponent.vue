@@ -105,7 +105,7 @@
 
 <script>
 import { required } from "vuelidate/lib/validators";
-import { checkBirthDate, checkTelephone } from "@/validators";
+import { checkBirthDate, checkTelephone } from "../validators";
 import NameComponent from "./attrForm/NameComponent.vue";
 import SurnameComponent from "./attrForm/SurnameComponent.vue";
 import SursurnameComponent from "./attrForm/SurSurNameComponent.vue";
