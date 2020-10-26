@@ -6,6 +6,10 @@
     <form @submit.prevent="submit" novalidate>
       <div class="flex justify-center my-6">
 
+      <hr>
+
+      <h2> Атрибуты формы </h2>
+
       <div class="px-4">
           <surname-component v-model="form.surname" :v="$v.form.surname " />
       </div>
@@ -57,6 +61,38 @@
           <input type="checkbox">
         </div>
 
+        <h2>Адресс</h2>
+
+        <div class="adress">
+
+          <div class="px-4">
+            <indexru-component v-model="form.indexru" :v="$v.form.indexru" />
+          </div>
+
+          <div class="px-4">
+            <nation-component v-model="form.nation" :v="$v.form.nation" />
+          </div>
+
+          <div class="px-4">
+            <region-component v-model="form.region" :v="$v.form.region" />
+          </div>
+
+          <div class="px-4">
+            <city-component v-model="form.city" :v="$v.form.city" />
+          </div>
+
+          <div class="px-4">
+            <streat-component v-model="form.streat" :v="$v.form.streat" />
+          </div>
+
+          <div class="px-4">
+            <house-component v-model="form.house" :v="$v.form.house" />
+          </div>
+
+        </div>
+
+
+
       </div>
       <div class="text-center">
         <button type="submit" class="button">
@@ -76,6 +112,13 @@ import SursurnameComponent from "./attrForm/SurSurNameComponent.vue";
 import BirthdateComponent from "./attrForm/BirthDateComponent.vue";
 import TelephoneComponent from "./attrForm/TelephoneComponent.vue";
 
+import IndexruComponent from "./adress/IndexruComponent.vue";
+import NationComponent from "./adress/NationComponent.vue";
+import RegionComponent from "./adress/RegionComponent.vue";
+import CityComponent from "./adress/CityComponent.vue";
+import StreatComponent from "./adress/StreatComponent.vue";
+import HouseComponent from "./adress/HouseComponent.vue";
+
 export default {
   name: "FormComponent",
 
@@ -84,7 +127,13 @@ export default {
     SurnameComponent,
     SursurnameComponent,
     BirthdateComponent,
-    TelephoneComponent
+    TelephoneComponent,
+    IndexruComponent,
+    NationComponent,
+    RegionComponent,
+    CityComponent,
+    StreatComponent,
+    HouseComponent
    },
 
   data() {
@@ -94,7 +143,13 @@ export default {
         surname: "",
         sursurname: "",
         birthdate: "",
-        telephone: ""
+        telephone: "",
+        indexru: "",
+        nation: "",
+        region: "",
+        city: "",
+        streat: "",
+        house: ""
       }
     };
   },
@@ -105,7 +160,13 @@ export default {
       name: { required },
       sursurname: {},
       birthdate: { checkBirthDate },
-      telephone: { checkTelephone }
+      telephone: { checkTelephone },
+      indexru: {},
+      nation: {},
+      region: {},
+      city: { required },
+      streat: {},
+      house: {}
     }
   },
 
