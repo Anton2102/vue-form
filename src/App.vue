@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <h1>Форма создания Клиента</h1>
-    <form-component />
+    <div class="container">
+      <form-component />
+    </div>
   </div>
 </template>
 
@@ -17,23 +19,26 @@ export default {
 </script>
 
 <style land="scss">
-#app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 20px;
-}
+
+  #app {
+    font-family: "Avenir", Helvetica, Arial, sans-serif;
+    text-align: center;
+    color: #2c3e50;
+    margin-top: 20px;
+  }
+
+  #app {
+    .container {
+      border: 1px solid black;
+      min-width: 300px;
+    }
+  }
 
 .input {
   background-color: #f7f7f7;
   border: 1px solid rgb(199, 199, 199);
   padding: 0.3rem 0.5rem;
   border-radius: 2px;
-  .hasError & {
-    border-color: red;
-  }
 }
 
 .hasError label {
@@ -51,5 +56,7 @@ export default {
   border-bottom: 2px solid #2e9106;
   transition: 0.3s;
 }
+
+
 
 </style>

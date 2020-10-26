@@ -34,17 +34,33 @@
         </div>
 
         <div class="px-4">
-          <select multiple :v="$v.form.selected">
+          <label for="one">Группа клиентов:* </label>
+          <br>
+          <select multiple>
             <option>VIP</option>
             <option>Проблемные</option>
             <option>ОМС</option>
           </select>
         </div>
 
+        <div class="px-4">
+          <label>Лечащий врач: </label>
+          <select>
+            <option>Иванов</option>
+            <option>Захаров</option>
+            <option>Чернышев</option>
+          </select>
+        </div>
+
+        <div class="px-4">
+          <label>Не отправлять смс</label>
+          <input type="checkbox">
+        </div>
+
       </div>
       <div class="text-center">
         <button type="submit" class="button">
-          Submit
+          Создать
         </button>
       </div>
     </form>
