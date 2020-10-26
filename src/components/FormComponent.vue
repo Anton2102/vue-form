@@ -3,8 +3,6 @@
     <form @submit.prevent="submit" novalidate>
       <div class="flex justify-center my-6">
 
-      <hr>
-
       <h2> Атрибуты формы </h2>
 
       <div class="px-4">
